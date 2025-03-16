@@ -1,18 +1,18 @@
 
-# PDF File Checker
+#PDF File Checker
 
-## Description
+##Description
 
 This is a simple C program designed to check whether a given file is a valid PDF by verifying its signature. The program checks the first four bytes of the file to see if they match the standard PDF signature (`%PDF`), which is represented as the hexadecimal values `0x25`, `0x50`, `0x44`, and `0x46`.
 
 If the file has the correct signature, the program confirms that it is a PDF. If the signature is missing or invalid, it reports that the file is not a PDF.
 
-## Features
+##Features
 
 - Verifies if the given file is a valid PDF by checking its signature (`%PDF`).
 - Provides error messages when the file does not have the correct PDF signature or is too small to be a valid PDF.
 
-## Compilation and Usage
+##Compilation and Usage
 
 To compile and run the program, follow these steps:
 
