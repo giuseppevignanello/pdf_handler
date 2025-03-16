@@ -30,6 +30,6 @@ The next steps to implement in this project are:
 1. **Read the text from the PDF:**:
 Implement functionality to extract and process the text content from the PDF file.
 
-2. **Count the number of words in the PDF::**:
+2. **Count the number of words in the PDF:**:
 After extracting the text, implement a word counting mechanism to determine how many words are present in the PDF.
 
