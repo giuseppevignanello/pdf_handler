@@ -1,18 +1,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
 
-
-// Define the PDF file signature as a constant array of bytes.
-// The first four bytes of a PDF file are always "%PDF" in ASCII,
-// which corresponds to these hexadecimal values
-#define PDF_SIGNATURE { 0x25, 0x50, 0x44, 0x46 }
-
-
-#define BUFFER_SIZE 1024
-
+#define PDF_SIGNATURE { 0x25, 0x50, 0x44, 0x46 } //define the PDF file signature (%PDF) in ASCII 
 
 int check_PDF_signature (FILE *file) {
     if (file == NULL) {
@@ -20,6 +10,8 @@ int check_PDF_signature (FILE *file) {
         return 1; 
     }
 
+    
+    /* Read first four bytes saving them and its length */
     unsigned char buffer[4];
     size_t bytesRead = fread(buffer, 1, 4, file);
 
@@ -28,12 +20,16 @@ int check_PDF_signature (FILE *file) {
         return 1; 
     }
 
+    /* Actual signature checking */
     unsigned char pdf_signature[] = PDF_SIGNATURE;
     if (!(buffer[0] == pdf_signature[0] && buffer[1] == pdf_signature[1] && 
         buffer[2] == pdf_signature[2] && buffer[3] == pdf_signature[3])) {
         perror("File is not a PDF");
         return 1; 
     }
+
+    printf("The file is a valid pdf \n");
+    return 0;
 }
 
 int main (int argc, char *argv[]) {
